@@ -6,7 +6,7 @@ import Navigation from "components/Navigation";
 import Profile from "routes/Profile";
 
 
-const AppRouter=(isLoggedIn) => {
+const AppRouter=({isLoggedIn,userObj}) => {
     console.log("isLoggedIn:"+isLoggedIn);
     return (
         
@@ -16,7 +16,7 @@ const AppRouter=(isLoggedIn) => {
                 {isLoggedIn ? (
                 <>
                 <Route exact path="/">
-                    <Home/>
+                     <Home userObj={userObj}/> {/*//props 전달 */}
                 </Route>
                 <Route exact path="/profile">
                     <Profile/>
