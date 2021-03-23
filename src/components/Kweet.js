@@ -1,4 +1,4 @@
-import { dbService } from "fBase";
+import { dbService, storageService } from "fBase";
 import React, { useState } from "react";
 
 const Kweet=({kweetObj, isOwner})=>{
@@ -8,16 +8,15 @@ const Kweet=({kweetObj, isOwner})=>{
           const ok = window.confirm("Are you sure you want to delte this kweet?");
           if(ok){
             await dbService.doc(`kweets/${kweetObj.id}`).delete();
-          }else{
-
+            await storageService.refFromURL(kweetObj.attachmentUrl).delete();
           }
 
       }
 
       const toggleEditing = () => setEditing((prev)=>!prev);
+
       const onSubmit=async (event)=>{
           event.preventDefault();
-          console.log(kweetObj, newKweet);
         await dbService.doc(`kweets/${kweetObj.id}`).update({
             text:newKweet,
         });
@@ -30,10 +29,11 @@ const Kweet=({kweetObj, isOwner})=>{
       }
 
     return(
-   
         <div>
            {editing ? (
                <>
+               {isOwner &&(
+                   <>
                <form onSubmit={onSubmit}>
                    <input type="text" value={newKweet}
                     placeholder="Edit your kweet" 
@@ -43,9 +43,14 @@ const Kweet=({kweetObj, isOwner})=>{
                </form>
                <button onClick={toggleEditing}>Cancel</button>
                </>
+               )}
+               </>
            ):(
                <>
             <h4>{kweetObj.text}</h4>
+            {kweetObj.attachmentUrl && (
+            <img src={kweetObj.attachmentUrl} width="50px" height="50px"/>
+            )}
             {isOwner && (
             <>
             <button onClick={onDeleteClick}>Delete Kweet</button>
