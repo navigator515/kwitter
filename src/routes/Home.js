@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { dbService } from "fBase";
+import Kweet from "components/Kweet"
 
 
 
@@ -58,9 +59,7 @@ return(
     </form>
     <div>
         {kweets.map((kweet)=>(
-        <div key={kweet.id}>
-            <h4>{kweet.text}</h4>
-        </div>
+        <Kweet key={kweet.id} kweetObj={kweet} isOwner={kweet.creatorId===userObj.uid}/>
             ))}
     </div>
 </div>
