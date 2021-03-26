@@ -1,5 +1,7 @@
 import { dbService, storageService } from "fBase";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Kweet=({kweetObj, isOwner})=>{
     const [editing, setEditing]= useState(false);
@@ -29,38 +31,76 @@ const Kweet=({kweetObj, isOwner})=>{
       }
 
     return(
-        <div>
+            <div>
            {editing ? (
                <>
                {isOwner &&(
                    <>
-               <form onSubmit={onSubmit}>
+               <form onSubmit={onSubmit}
+                    className="container nweetEdit">
                    <input type="text" value={newKweet}
                     placeholder="Edit your kweet" 
                    required
-                   onChange={onChange}/>
-                   <input type="submit" value="Update Kweet"/>
+                   autoFocus
+                   onChange={onChange}
+                   className="formInput"
+                   />
+                   <input type="submit" value="Update Kweet" className="formBtn"/>
+                   <span onClick={toggleEditing} className="formBtn cancelBtn">
+                   Cancel
+                    </span> 
                </form>
-               <button onClick={toggleEditing}>Cancel</button>
-               </>
+                            </>
                )}
                </>
-           ):(
-               <>
-            <h4>{kweetObj.text}</h4>
-            {kweetObj.attachmentUrl && (
-            <img src={kweetObj.attachmentUrl} width="50px" height="50px"/>
-            )}
-            {isOwner && (
-            <>
-            <button onClick={onDeleteClick}>Delete Kweet</button>
-            <button onClick={toggleEditing}>Edit Kweet</button>
-            </>
-            )}
-           </>
-           )}
-        </div>
+              
+            ):
+           (
             
-    )};
+             <div className="wefl_container">
+              <div className="wefl_post">
+                <div className="wefl_post_header">
 
+                    <h4 className="font_weight_bold">유저 이름</h4>
+                     <span>업로드 날짜</span>
+                        <span>
+                            {isOwner && (
+                             <div className="nweet__actions">
+                            <span onClick={onDeleteClick}>
+                                <FontAwesomeIcon icon={faTrash} />
+                            </span>
+                            <span onClick={toggleEditing}>
+                                <FontAwesomeIcon icon={faPencilAlt} />
+                            </span>
+                        </div>
+                                )}
+                     </span>
+                 </div>
+
+                        <div>
+                        {kweetObj.attachmentUrl &&(
+                        <img src={kweetObj.attachmentUrl} />
+                                                )
+                        }
+                     </div>
+                            <div className="wefl_post_text">
+                            <h4>{kweetObj.text}</h4>
+                            </div>
+
+                            <div className="wefl_post_footer">
+                                <h4> 댓글..</h4>
+                              </div>
+                    </div>
+                   
+
+                </div>
+           
+            
+             )
+                }
+          
+            
+            </div>
+    )
+}
 export default Kweet;

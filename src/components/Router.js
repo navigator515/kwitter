@@ -6,7 +6,7 @@ import Navigation from "components/Navigation";
 import Profile from "routes/Profile";
 
 
-const AppRouter=({isLoggedIn, userObj}) => {
+const AppRouter=({ refreshUser,isLoggedIn, userObj}) => {
     console.log("isLoggedIn:"+isLoggedIn);
     return (
         
@@ -14,15 +14,24 @@ const AppRouter=({isLoggedIn, userObj}) => {
             {isLoggedIn && <Navigation  userObj={userObj}/>}
             <Switch>
                 {isLoggedIn ? (
-                <>
+                 <div
+                 style={{
+                   maxWidth: 890,
+                   width: "100%",
+                   margin: "0 auto",
+                   marginTop: 80,
+                   display: "flex",
+                   justifyContent: "center",
+                 }}
+               >
                 <Route exact path="/">
                      <Home userObj={userObj}/> {/*//props 전달 */}
                 </Route>
                 <Route exact path="/profile">
-                    <Profile userObj={userObj}/>
+                    <Profile userObj={userObj} refreshUser={refreshUser}/>
                 </Route>
                 <Redirect from="*" to="/"/>
-                 </>
+                 </div>
                 )
                 :
                 (
@@ -32,7 +41,7 @@ const AppRouter=({isLoggedIn, userObj}) => {
                 </Route>
                 <Redirect from="*" to="/"/>
                 </> 
-                )}
+                )})
             </Switch>
         </Router>
     )
