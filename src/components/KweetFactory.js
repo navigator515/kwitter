@@ -85,12 +85,10 @@ return (
                     </label>
                      }
         </div>
-        <div className="wefl_post_text">
 
-                   
-
+        <div className="wefl_post_text">               
               <form onSubmit={onSubmit} className="factoryForm">
-                    <div className="factoryInput__container">
+                    <div className="factoryInput__container_img">
                         <textarea
                         className="wefl_post_textarea"
                         value={kweet}
@@ -98,9 +96,7 @@ return (
                         placeholder="What's on your mind?"
                         maxLength={200}
                         />
-                        <input type="submit" value="&rarr;" className="cursor" />
-                    </div>
-                    
+
                     <input
                         id="attach-file"
                         type="file"
@@ -110,6 +106,11 @@ return (
                         opacity: 0,
                         }}
                     />
+                         <div className="arrow_btn" >
+                               <input type="submit" value="Kweet &rarr;" className="cursor" />
+                         </div>
+                    </div>
+                    
                     
                 </form>
         </div>

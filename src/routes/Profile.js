@@ -44,17 +44,26 @@ export default ({refreshUser,userObj}) =>{
 
 
     return (
-        <>
+        <div className="container">
+
         <form onSubmit={onSubmit}>
+         <div>
             <input
             onChange={onChange}
             type="text"
             placeholder="Display name"
             value={newDisplayName}
+            className="wefl_my_profile"
             />
-            <input type="submit" value="Update Profile"/>
+            <input type="submit" value="Update Profile" style={{border:"black 1px solid" , padding:"9px"}}/>
+           
+            <span className="wefl_logout_btn">
+            <button onClick={onLogOutClick}>Log Out</button>
+             </span>  
+         </div>
         </form>
-        <button onClick={onLogOutClick}>Log Out</button>
-        </>
+      
+        
+        </div>
     );
 };
