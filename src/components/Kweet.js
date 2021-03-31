@@ -5,9 +5,9 @@ import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Kweet=({kweetObj, isOwner})=>{
     const [editing, setEditing]= useState(false);
-    const [newKweet, setNerKweet]=useState(kweetObj.text);
+    const [newKweet, setNewKweet]=useState(kweetObj.text);
       const onDeleteClick = async () =>{
-          const ok = window.confirm("Are you sure you want to delte this kweet?");
+          const ok = window.confirm("Are you sure you want to delete this kweet?");
           if(ok){
             await dbService.doc(`kweets/${kweetObj.id}`).delete();
             await storageService.refFromURL(kweetObj.attachmentUrl).delete();
@@ -27,7 +27,7 @@ const Kweet=({kweetObj, isOwner})=>{
       const onChange=(event)=>{
           const {target:{value},
         }=event;
-        setNerKweet(value);
+        setNewKweet(value);
       }
 
     return(
