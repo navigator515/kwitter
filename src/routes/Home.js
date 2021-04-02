@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { dbService, storageService } from "fBase";
 import Kweet from "components/Kweet"
 import KweetFactory from "components/KweetFactory";
+import SideBar from "components/SideBar";
+import Navigation from "components/Navigation";
 
 const Home =({userObj})=>{
     console.log(userObj)
@@ -20,13 +22,21 @@ const Home =({userObj})=>{
         },[]);
 
 return(
-<div className="container">
-    <KweetFactory userObj={userObj}/>
-    <div>
-        {kweets.map((kweet)=>(
-        <Kweet key={kweet.id} kweetObj={kweet} isOwner={kweet.creatorId===userObj.uid}/>
-            ))}
-    </div>
+    <div className="app"> 
+      <Navigation userObj={userObj}/>
+        <div className="container">
+            <div className="feed">
+                <KweetFactory userObj={userObj}/>
+                <div>
+                    {kweets.map((kweet)=>(
+                    <Kweet key={kweet.id} kweetObj={kweet} isOwner={kweet.creatorId===userObj.uid}/>
+                        ))}
+                </div>
+            </div>
+    
+         <SideBar/>
 </div>
+    </div>
+
 )};
 export default Home;
