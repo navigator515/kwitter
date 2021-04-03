@@ -1,5 +1,7 @@
 @import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
 
+
+/* 위플 색 b3fb60 */
 * {
   box-sizing: border-box;
 }
@@ -19,7 +21,7 @@ body {
 }
 
 button {
-  background-color: yellowgreen;
+  background-color: #b3fb60;
   color: black;
 }
 
@@ -56,8 +58,16 @@ form {
 .feed{
   flex:0.7;
   margin: 30px;
-  width:1300px
+  width:1300px;
+  overflow-y : scroll;
+  min-width: fit-content;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
 
 .formInput {
   width: 100%;
@@ -80,7 +90,7 @@ form {
   text-align: center;
   color: black;
   border-radius: 20px;
-  background-color: #04aaff;
+  background-color: #b3fb60;
   
 }
 
@@ -129,7 +139,7 @@ form {
   height: 40px;
   padding: 0px 20px;
   color: black;
-  border: 1px solid #04aaff;
+  border: 1px solid #b3fb60;
   border-radius: 20px;
   font-weight: 500;
   font-size: 12px;
@@ -138,7 +148,7 @@ form {
 .factoryInput__arrow {
   position: absolute;
   right: 0;
-  background-color: #04aaff;
+  background-color: #b3fb60;
   height: 40px;
   width: 40px;
   padding: 10px 0px;
@@ -148,7 +158,7 @@ form {
 }
 
 .factoryInput__label {
-  color: #04aaff;
+  color: #b3fb60;
   cursor: pointer;
   margin: 0px auto;
 }
@@ -172,7 +182,7 @@ form {
 }
 
 .factoryForm__clear {
-    color: #04aaff;
+    color: #b3fb60;
     cursor: pointer;
     text-align: center;
     margin: 10px;
@@ -279,7 +289,7 @@ form {
   font-size: 12px;
   text-align: center;
   width: 150px;
-  background: yellowgreen;
+  background: b3fb60;
   cursor: pointer;
 }
 
@@ -298,7 +308,7 @@ form {
 
 .authSubmit {
   text-align: center;
-  background: #04aaff;
+  background: #b3fb60;
   color: white;
   margin-top: 10;
   cursor: pointer;
@@ -426,7 +436,7 @@ div{
  profile 
  */
  .wefl_my_profile{
-   border:#04aaff solid 1px;
+   border:#b3fb60 solid 1px;
    margin: 20px;
    font-size: 25px;
  }

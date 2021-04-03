@@ -1,4 +1,17 @@
 .SideBar{
     flex : 0.3;
     background:rgb(240, 224, 224);
+    display: fixed;
+    height: 500px;
+    overflow: hidden;
+    min-width: fit-content;
+    margin-top:30px;
+}
+.set_favorite{
+    display: flex;
+    align-items: center;
+    margin-left: 14px;
+    align-content: center;
+    align-self: center;
+
 }

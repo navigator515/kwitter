@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { authService, dbService } from "fBase";
 import { useHistory } from "react-router";
+import Navigation from "components/Navigation";
 
 
 export default ({refreshUser,userObj}) =>{
@@ -44,9 +45,15 @@ export default ({refreshUser,userObj}) =>{
 
 
     return (
-        <div className="container">
-
-        <form onSubmit={onSubmit}>
+       
+        <div className="app">
+            <div>
+                 <Navigation userObj={userObj}/>
+            </div>
+              
+            <div className="container">
+              
+        <form onSubmit={onSubmit} style={{alignItems:"center"}}>
             
          <div>
             <input
@@ -63,6 +70,8 @@ export default ({refreshUser,userObj}) =>{
              </span>  
          </div>
         </form>
+            </div>
+        
       
         
         </div>
