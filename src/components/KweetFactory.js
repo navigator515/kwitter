@@ -129,55 +129,129 @@ return (
      </div>
 
  </div>
-//이상 이미지 처부한 경우 
+//이상 이미지 첨부한 경우 
 :
-    <div>
-        {attachment && (
-            <div className="wefl_post">
-            <div className="factoryForm__clear" onClick={onClearAttachmentClick}>
-            <span>Remove</span>
-            <FontAwesomeIcon icon={faTimes} />
-          </div>
-        <div className="factoryForm__attachment">
-          <img
+//     <div>
+//         {attachment && (
+//             <div className="wefl_post">
+//             <div className="factoryForm__clear" onClick={onClearAttachmentClick}>
+//             <span>Remove</span>
+//             <FontAwesomeIcon icon={faTimes} />
+//           </div>
+//         <div className="factoryForm__attachment">
+//           <img
+//             src={attachment}
+//             style={{
+//               backgroundImage: attachment,
+//             }}
+//           />
+          
+//         </div>
+//         </div>
+//       )}
+//     <form onSubmit={onSubmit} className="factoryForm">
+//       <div className="factoryInput__container">
+//       <label for="attach-file" className="factoryInput__label">
+        
+//         <div className="plus_img">
+//         <span style={{textAlign:"center",margin:"auto"}}>Add photos</span>
+//           <FontAwesomeIcon icon={faPlus} style={{width:100, height:100}} />
+//           </div>
+        
+//       </label>
+//         <textarea
+//           className="factoryInput__input"
+//           value={kweet}
+//           onChange={onChange}
+//           type="text"
+//           placeholder="What's on your mind?"
+//           maxLength={120}
+          
+//         />
+//         <input type="submit" value="&rarr;" className="factoryInput__arrow cursor" />
+//       </div>
+     
+//       {/* //사진 첨부 기능은 넣지만 보여주지는 않는다  */}
+//       <input
+//         id="attach-file"
+//         type="file"
+//         accept="image/*"
+//         onChange={onFileChange}
+//         style={{
+//           opacity: 0,
+//         }}
+//       />
+      
+//  </form>
+// </div>
+<div className="wefl_container">
+     <div className="wefl_post wd1000">
+        <div className="wefl_post_header " >
+            <h2>{userObj.displayName}</h2>
+           
+        </div>
+        <div>
+          {attachment?
+           <img
             src={attachment}
             style={{
               backgroundImage: attachment,
             }}
           />
+            :
+            <label for="attach-file" className="factoryInput__label">
+
+                <div className="plus_img">
+          {/* <span style={{textAlign:"center",margin:"auto"}}>Add photos</span> */}
+            <FontAwesomeIcon icon={faPlus} style={{width:100, height:100}} />
+                  </div>
+            </label>
           
+          }
+       
         </div>
+        {/* <div className="wefl_post_img_add">
+        {!attachment &&
+                     <label for="attach-file" >
+                        <span>Add photos</span>
+                        <FontAwesomeIcon icon={faPlus} />
+                    </label>
+                     }
+        </div> */}
+
+        <div className="wefl_post_text">               
+              <form onSubmit={onSubmit} className="factoryForm">
+                    <div className="factoryInput__container_img">
+                        <textarea
+                        className="wefl_post_textarea"
+                        value={kweet}
+                        onChange={onChange}
+                        placeholder="What's on your mind?"
+                        maxLength={200}
+                        />
+ {/* //사진 첨부 기능은 넣지만 보여주지는 않는다  */}
+                    <input
+                        id="attach-file"
+                        type="file"
+                        accept="image/*"
+                        onChange={onFileChange}
+                        style={{
+                        opacity: 0,
+                        }}
+                    />
+                         <div className="arrow_btn" >
+                               <input type="submit" value="Kweet &rarr;" className="cursor" />
+                         </div>
+                    </div>
+                    
+                    
+                </form>
         </div>
-      )}
-    <form onSubmit={onSubmit} className="factoryForm">
-      <div className="factoryInput__container">
-        <input
-          className="factoryInput__input"
-          value={kweet}
-          onChange={onChange}
-          type="text"
-          placeholder="What's on your mind?"
-          maxLength={120}
-        />
-        <input type="submit" value="&rarr;" className="factoryInput__arrow cursor" />
-      </div>
-      <label for="attach-file" className="factoryInput__label">
-        <span>Add photos</span>
-        <FontAwesomeIcon icon={faPlus} />
-      </label>
-      {/* //사진 첨부 기능은 넣지만 보여주지는 않는다  */}
-      <input
-        id="attach-file"
-        type="file"
-        accept="image/*"
-        onChange={onFileChange}
-        style={{
-          opacity: 0,
-        }}
-      />
-      
- </form>
-</div>
+       
+
+     </div>
+
+ </div>
 }
 </>
 )

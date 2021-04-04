@@ -16,14 +16,14 @@ const Navigation = ({userObj})=>(
          </Link>       
 
         </li>
-        <li>
+        <li className="cursor">
           {/* <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" /> */}
           <h2 style={{marginLeft:40, fontSize:18, fontWeight:10}}>커뮤니티</h2>
         </li>
 
-        <li>
+        <li className="cursor">
           {/* <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" /> */}
-          <h2 style={{marginLeft:40, fontSize:18, fontWeight:10}}>위플마켓</h2>
+          <h2  style={{marginLeft:40, fontSize:18, fontWeight:10}}>위플마켓</h2>
         </li>
      </ul>
 
@@ -42,17 +42,17 @@ const Navigation = ({userObj})=>(
           }}
         >
           <FontAwesomeIcon icon={faUser} color={"#b3fb60"} size="2x" />
-          <span style={{ marginTop: 10 ,marginLeft:20}}>
+          <span className="cursor" style={{ marginTop: 10 ,marginLeft:20}}>
             {userObj.displayName
               ? `${userObj.displayName}의 Profile`
               : "Profile"}
           </span>
         </Link>       
          </li>
-         <li >
+         <li className="cursor">
            <h2>| 로그아웃</h2>
          </li>
-         <li style={{ marginLeft:5}}>
+         <li className="cursor" style={{ marginLeft:5}}>
            <h2>| 고객센터</h2>
          </li>
     </ul>

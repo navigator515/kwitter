@@ -61,7 +61,7 @@ const Kweet=({kweetObj, isOwner})=>{
               <div className="wefl_post">
                 <div className="wefl_post_header">
 
-                    <h4 className="font_weight_bold">유저 이름</h4>
+                    <h4 className="font_weight_bold">{kweetObj.creatorId}</h4>
                      <span>업로드 날짜</span>
                         <span>
                             {isOwner && (
